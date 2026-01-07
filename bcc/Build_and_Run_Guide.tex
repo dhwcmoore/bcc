@@ -1,0 +1,49 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{parskip}
+\usepackage{fancyvrb}
+\usepackage[hidelinks]{hyperref}
+
+\title{Build and Run Guide: Boundary Consultant Claude Package}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Directory}
+\begin{Verbatim}[fontsize=\small]
+/home/duston/Desktop/DataDrive/boundaryconsultant/Boundary_Consultant_Claude
+\end{Verbatim}
+
+\section*{Clean build}
+\begin{Verbatim}[fontsize=\small]
+cd /home/duston/Desktop/DataDrive/boundaryconsultant/Boundary_Consultant_Claude
+
+rm -f *.cmi *.cmo boundary_demo audit_ai_labs demo_out.txt audit_out.txt
+
+ocamlfind ocamlc -package unix -c boundary_transport_build.ml
+ocamlfind ocamlc -package unix -c -I . demo.ml
+ocamlfind ocamlc -package unix -c -I . ai_lab_audit.ml
+
+ocamlfind ocamlc -package unix -linkpkg boundary_transport_build.cmo demo.cmo -o boundary_demo
+ocamlfind ocamlc -package unix -linkpkg boundary_transport_build.cmo ai_lab_audit.cmo -o audit_ai_labs
+\end{Verbatim}
+
+\section*{Run and capture outputs}
+\begin{Verbatim}[fontsize=\small]
+./boundary_demo > demo_out.txt
+echo "demo exit code = $?"
+tail -n 20 demo_out.txt
+
+./audit_ai_labs > audit_out.txt
+echo "audit exit code = $?"
+tail -n 20 audit_out.txt
+\end{Verbatim}
+
+\section*{Notes}
+A compiler warning about an unused variable is not a build failure. If both executables run and exit with code 0, the build and run are successful.
+
+\end{document}
+

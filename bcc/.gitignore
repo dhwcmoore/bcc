@@ -1,0 +1,19 @@
+# OCaml build artefacts
+*.cmi
+*.cmo
+*.cmx
+*.o
+*.a
+*.so
+_build/
+
+# Coq artefacts
+*.glob
+*.vo
+*.vos
+*.vok
+*.aux
+*.log
+
+# Editor / office locks
+.~lock.*
