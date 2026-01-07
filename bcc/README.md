@@ -1,3 +1,7 @@
+For a concise explanation of what this artefact demonstrates and why it exists, see [RESUME.md](./RESUME.md).
+
+---
+
 # Boundary Closure Calculus (BCC)
 
 **Executable Boundary Proofs for AI Safety, Validation, and Governance**
@@ -14,33 +18,33 @@ It answers a precise safety question:
 
 BCC provides:
 
-- a **formal logic of boundary transport** (machine-checked),
-- an **executable audit engine** that enforces that logic at runtime,
-- and **live demonstrations** applying it to modern AI labs.
+* a **formal logic of boundary transport** (machine-checked),
+* an **executable audit engine** that enforces that logic at runtime,
+* and **live demonstrations** applying it to modern AI development contexts.
 
-This is **not** a policy checklist, benchmark suite, or governance narrative.  
+This is **not** a policy checklist, benchmark suite, or governance narrative.
 It is a **proof-bearing boundary detector**.
 
 ---
 
 ## Why This Matters for AI Safety
 
-Many high-impact AI failures are **not model failures**.  
+Many high-impact AI failures are **not model failures**.
 They are **boundary failures**:
 
-- validation → deployment  
-- internal metrics → external outcomes  
-- capability → authority  
-- component safety → system safety  
-- nominal oversight → effective control  
+* validation → deployment
+* internal metrics → external outcomes
+* capability → authority
+* component safety → system safety
+* nominal oversight → effective control
 
 These failures occur **even when all internal checks pass**.
 
 BCC makes these failures:
 
-- formally explicit,
-- structurally classifiable,
-- and **machine-detectable**.
+* formally explicit,
+* structurally classifiable,
+* and **machine-detectable**.
 
 ---
 
@@ -50,18 +54,18 @@ BCC makes these failures:
 
 The Coq development (`boundary_transport.v`) formalises the **Boundary Transport Theorem**:
 
-> If a claim must cross a non-trivial boundary, then a transport proof is required.  
+> If a claim must cross a non-trivial boundary, then a transport proof is required.
 > If any required component of that proof is missing, the claim cannot be validly transported.
 
 This theorem underpins canonical AI safety failure modes, including:
 
-- Self-Referential Validation (SRV)
-- Silent Scope Expansion (SSE)
-- Composition Failure (CF)
-- Human-in-the-Loop Illusions (HLI)
-- Responsibility Transport Failure (RTF)
+* Self-Referential Validation (SRV)
+* Silent Scope Expansion (SSE)
+* Composition Failure (CF)
+* Human-in-the-Loop Illusions (HLI)
+* Responsibility Transport Failure (RTF)
 
-Each failure is a **constructive non-existence result**:  
+Each failure is a **constructive non-existence result**:
 a proof cannot be built given the available evidence.
 
 ---
@@ -72,10 +76,10 @@ The OCaml implementation (`boundary_transport_build.ml`, `ai_lab_audit.ml`) is a
 
 It provides:
 
-- typed boundary representations,
-- explicit domain and assumption shifts,
-- determination rules **derived directly from theorem structure**,
-- structured audit artefacts suitable for research, red-teaming, and governance review.
+* typed boundary representations,
+* explicit domain and assumption shifts,
+* determination rules **derived directly from theorem structure**,
+* structured audit artefacts suitable for research, red-teaming, and governance review.
 
 The engine **refuses unsafe boundary crossings**.
 
@@ -87,36 +91,38 @@ The included binaries demonstrate **reflexive application** of the framework:
 
 ```bash
 ./audit_ai_labs
+```
+
 This performs boundary audits of:
 
-Anthropic — Constitutional AI self-evaluation  
-OpenAI — validation → deployment expansion  
+* **Anthropic** — Constitutional AI self-evaluation
+* **OpenAI** — validation → deployment expansion
 
-The output is not an opinionated critique.  
-It is a failed transport proof, with missing components explicitly identified.
+The output is not an opinionated critique.
+It is a **failed transport proof**, with missing components explicitly identified.
 
 ---
 
 ## What Makes This Different from Existing AI Safety Work
 
-Most AI safety work focuses on *models*.  
+Most AI safety work focuses on *models*.
 Boundary Closure Calculus focuses on *claims crossing contexts*.
 
 Existing approaches typically emphasise:
 
-models and benchmarks,  
-policy frameworks and narratives,  
-post-hoc critique and interpretation.
+* models and benchmarks,
+* policy frameworks and narratives,
+* post-hoc critique and interpretation.
 
 BCC instead provides:
 
-proof obligations for claim transport,  
-explicit boundary classes,  
-constructive detection of failure cases.
+* proof obligations for claim transport,
+* explicit boundary classes,
+* constructive detection of failure cases.
 
 This distinction matters because many high-impact failures occur **after** internal validation succeeds.
 
-BCC does not replace alignment research, interpretability, or red-teaming.  
+BCC does not replace alignment research, interpretability, or red-teaming.
 It guards the boundaries *between* them.
 
 ---
@@ -142,32 +148,38 @@ bcc/
 └── README.md                      This document
 ```
 
-
-
 The repository is intentionally compact.
 Every file corresponds to a concrete role in the boundary-to-execution pipeline.
 
 There are no hidden dependencies, benchmarks, or narrative layers.
 
+---
 
 ## Status
 
 This is a working research artefact.
 
-- Formal proofs compile.
-- Executable audits run.
-- Outputs are reproducible.
+* Formal proofs compile.
+* Executable audits run.
+* Outputs are reproducible.
 
 The repository is intentionally small, explicit, and auditable.
 
+---
+
 ## Author
 
-Duston Moore, PhD  
-Formal logic, AI safety, boundary-aware verification  
+Duston Moore, PhD
+Formal logic, AI safety, boundary-aware verification
 Edmonton, Canada
+
+---
 
 ## License
 
 MIT License.
 
 The license is intentionally permissive to enable research reuse, critique, and extension.
+
+---
+
