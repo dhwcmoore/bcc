@@ -12,17 +12,20 @@
 \begin{document}
 \maketitle
 
-\section*{Directory}
+\section*{Prerequisites}
+\begin{itemize}
+\item OCaml compiler (tested with 4.14+)
+\item ocamlfind (\texttt{opam install ocamlfind} or \texttt{apt install ocaml-findlib})
+\end{itemize}
+
+\section*{Build}
+From the \texttt{bcc/} directory:
 \begin{Verbatim}[fontsize=\small]
-/home/duston/Desktop/DataDrive/boundaryconsultant/Boundary_Consultant_Claude
+./build_local.sh
 \end{Verbatim}
 
-\section*{Clean build}
+Or manually:
 \begin{Verbatim}[fontsize=\small]
-cd /home/duston/Desktop/DataDrive/boundaryconsultant/Boundary_Consultant_Claude
-
-rm -f *.cmi *.cmo boundary_demo audit_ai_labs demo_out.txt audit_out.txt
-
 ocamlfind ocamlc -package unix -c boundary_transport_build.ml
 ocamlfind ocamlc -package unix -c -I . demo.ml
 ocamlfind ocamlc -package unix -c -I . ai_lab_audit.ml
@@ -46,4 +49,3 @@ tail -n 20 audit_out.txt
 A compiler warning about an unused variable is not a build failure. If both executables run and exit with code 0, the build and run are successful.
 
 \end{document}
-
