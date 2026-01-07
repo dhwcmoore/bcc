@@ -42,8 +42,8 @@ boundaryconsultant/
 │   └── Unified Framework - Regional Calculus to Boundary Failures.md
 │
 └── bcc/
-    ├── boundary_transport.v      Coq formalisation of Boundary Transport Theorem
-    ├── boundary_transport.ml     OCaml extraction from Coq
+    ├── boundary_transport.v      Rocq formalisation of Boundary Transport Theorem
+    ├── boundary_transport.ml     OCaml extraction from Rocq
     ├── boundary_transport_build.ml   Runtime boundary enforcement engine
     ├── ai_lab_audit.ml           Reflexive audits of AI lab claims
     ├── demo.ml                   Demonstration scenarios
